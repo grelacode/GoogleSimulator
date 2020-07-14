@@ -2,15 +2,14 @@ const jwt = require('jsonwebtoken');
 
 const checkauth = (req, res, next) => {
     try {
-        const decoded = jwt.verify(req.body.token, process.env.JWT_KEY);
-        req.pin = decoded;
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.verify(token, process.env.JWT_KEY);
         next();
-    } catch (errorr) {
+    } catch (error) {
         return res.status(401).json({
-            message: 'auth failed'
-        })
+            message: error
+        });
     }
-    
 }
 
 module.exports = checkauth;
