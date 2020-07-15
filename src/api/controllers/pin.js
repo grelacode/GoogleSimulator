@@ -1,11 +1,10 @@
 'use strict';
-// const { validate } = require('express-superstruct');
 const pindb = require('../models/fakepin')
 
-const pinController = (req, res) => {
+const pinController = async (req, res) => {
     try {
         const userPin = req.params.pin
-        const found = pindb.find(user => user.pin === userPin);
+        const found = await pindb.find(user => user.pin === userPin);
         if(!found){
             return res.status(404).json({
                 message:"invalid pin"

@@ -3,15 +3,15 @@ let fakePin = [{
     forzaje: [{
         id: 1,
         linkname: 'perros',
-        url: 'https://www.caracteristicas.co/wp-content/uploads/2017/02/perro-3-e1561679226953.jpg'
+        url: 'https://www.google.com/imgres?imgurl=https://dam.ngenespanol.com/wp-content/uploads/2019/06/mirada-perros.png&imgrefurl=https://www.ngenespanol.com/animales/resistirse-mirada-tierna-perros/&tbnid=PQvtwC5Q2fcmbM&vet=1&docid=_ZoLX1KiYTfEUM&w=800&h=410&q=perro&source=sh/x/im'
     }, {
         id: 2,
         linkname: 'gatos',
-        url: 'https://www.fundacion-affinity.org/sites/default/files/el-gato-necesita-tener-acceso-al-exterior.jpg'
+        url: 'https://www.google.com/imgres?imgurl=https://static2.elcomercio.es/www/multimedia/201912/26/media/cortadas/perros-nombres-asturias-k9bD-U901062991415sSF-624x385@El%2520Comercio.jpg&imgrefurl=https://www.elcomercio.es/mascotas/nombres-perro-populares-asturias-luna-leo-kira-20191226130143-nt.html&tbnid=azPl4ztRUJ_kHM&vet=1&docid=RK7HhiRnHe-7oM&w=624&h=385&itg=1&q=perro&source=sh/x/im'
     }, {
         id: 3,
         linkname: 'autos',
-        url: 'https://fotos.perfil.com/2019/10/01/como-es-el-p72-el-auto-con-el-que-renace-una-marca-argentina-786570.jpg'
+        url: 'https://www.google.com/imgres?imgurl=https://dam.ngenespanol.com/wp-content/uploads/2019/10/perros-personalidad-2.jpg&imgrefurl=https://www.ngenespanol.com/animales/duenos-influye-personalidad-perro/&tbnid=CRyrDSeIqxIviM&vet=1&docid=qv8jI35Gzqg4MM&w=800&h=410&q=perro&source=sh/x/im'
     }],
     }, {
     pin: 'PPH',
