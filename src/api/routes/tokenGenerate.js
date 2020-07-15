@@ -17,7 +17,6 @@ router.get('/dametoken', (req, res) => {
     res.status(200).json({
       token
     });
-    console.log(token);
 });
 
  module.exports = router;

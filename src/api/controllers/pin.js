@@ -1,28 +1,29 @@
 'use strict';
-
-const { length } = require('superstruct');
+// const { validate } = require('express-superstruct');
 const pindb = require('../models/fakepin')
 
 const pinController = (req, res) => {
-    const userPin = req.body.pin;
-    const found = pindb.pins.find(pin => pin === userPin);
+    try {
+        const userPin = req.params.pin
+        const found = pindb.find(user => user.pin === userPin);
+        if(!found){
+            return res.status(404).json({
+                message:"invalid pin"
+            })
+        }
+        const pinData = found.forzaje;       
+        res.status(200).json({
+            pinData
+        })
+    }
 
-    if (!found) {
-        return res.status(400).json({
+    catch {
+        res.status(400).json({
             error: {
-                message: "incorrect pin"
+                message: "something wrong"
             }
-        });
-    }
-
-    const data = {
-        linkname: "perros y gatos",
-        url: "https://perros.com/gatos"
-    }
-    
-    res.status(200).json({
-        data
-    });
+        })  
+    }   
 }
 
 module.exports = pinController;
