@@ -1,5 +1,6 @@
 {
     "env": {
-        "JWT_KEY": "testing"
+        "GOOGLE_API_KEY": "AIzaSyA_ipvftbMUvfZ-Am8Wb8-6aCngYi6JEjQ",
+        "JWT_KEY": "testing"        
     }
 }

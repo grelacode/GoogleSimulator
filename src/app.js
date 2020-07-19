@@ -2,8 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
-const pinRoutes = require("./api/routes/pin");
-const tokenRoutes = require("./api/routes/tokenGenerate");
+const routes = require("./api/routes/router")
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,8 +15,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/api/pins", pinRoutes);
-app.use("/api", tokenRoutes);
+app.use("/", routes);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
