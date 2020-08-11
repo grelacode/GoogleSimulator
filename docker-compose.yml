@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    build: ./database-service
+    environment:
+      POSTGRES_DB: anywebdatabase
+      POSTGRES_PASSWORD: qwerty123
+      POSTGRES_USER: user
+    volumes:
+      - ./database-service/seeder.sql:/docker-entrypoint-initdb.d/dump.sql
+  app:
+    ##on fails (ver dependencia de db)
+    build: ./
+    restart: always
+    environment:
+        POSTGRES_DB: anywebdatabase
+        POSTGRES_PASSWORD: qwerty123
+        POSTGRES_USER: user
+    ports:
+      - "8080:8080"
+    depends_on:
+        - db
+    links:
+      - db:db

@@ -1,6 +1,6 @@
 let fakePin = [{
     pin: 'AAB',
-    forzaje: [{
+    magicTrick: [{
         id: 1,
         linkname: 'perros',
         url: 'https://www.google.com/imgres?imgurl=https://dam.ngenespanol.com/wp-content/uploads/2019/06/mirada-perros.png&imgrefurl=https://www.ngenespanol.com/animales/resistirse-mirada-tierna-perros/&tbnid=PQvtwC5Q2fcmbM&vet=1&docid=_ZoLX1KiYTfEUM&w=800&h=410&q=perro&source=sh/x/im'
@@ -15,7 +15,7 @@ let fakePin = [{
     }],
     }, {
     pin: 'PPH',
-    forzaje: [{
+    magicTrick: [{
         id: 4,
         linkname: 'libros',
         url: 'https://www.bbva.com/wp-content/uploads/2017/05/Economia-finanzas-Libros-BBVA.jpg'

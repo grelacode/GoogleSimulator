@@ -1,28 +1,23 @@
 'use strict';
+
 const express = require("express");
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const checkauth = require('../middleware/check-auth');
-const pinController = require('../controllers/pin');
-const searchController = require('../googlesearch/makeRequest');
+const checkAuth = require('../middleware/check_auth');
+const PinController = require('../controllers/pin_controller');
+const googleApiController = require('../controllers/google_controller');
 
-router.get('/api/pins/:pin', checkauth, pinController);
+router.get('/api/googlesearch/:query',checkAuth, googleApiController.getGoogleResponse);
 
-router.get('/api/dametoken', (req, res) => {
-    const token = jwt.sign(
-        {
-            "testing": "testing"
-        },
-        process.env.JWT_KEY,
-        {
-            expiresIn: "24h"
-        }
-    );
-    res.status(200).json({
-        token
-    });
+/*
+deprecated route
+router.get('/api/validatepin/:pin', checkAuth, async (req, res) => {
+    try {
+        const resultCheckPin = await PinController.checkUserPin(req.params.pin);
+        res.status(httpCodes.SUCCESS).json(resultCheckPin);
+    } catch (error) {
+        res.status(httpCodes.BAD_REQUEST).json({error: true, message: error.message});
+    }
 });
-
-router.get('/api/googleSearch/:search',checkauth, searchController);
+*/
 
 module.exports = router;

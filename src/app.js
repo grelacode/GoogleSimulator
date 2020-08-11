@@ -1,8 +1,10 @@
+'use strict';
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-
-const routes = require("./api/routes/router")
+const httpCodes = require('./api/constants/http_codes');
+require('dotenv').config()
+const routes = require("./api/routes/router");
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,12 +21,12 @@ app.use("/", routes);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
-    error.status = 404;
+    error.status = httpCodes.NOT_FOUND;
     next(error);
 });
 
 app.use((error, req, res, next) => {
-    res.status(error.status || 500);
+    res.status(error.status || httpCodes.INTERNAL_SERVER_ERROR);
     res.json({
         error: {
             message: error.message

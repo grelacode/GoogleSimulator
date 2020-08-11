@@ -7,7 +7,7 @@ const checkauth = (req, res, next) => {
         next();
     } catch (error) {
         return res.status(401).json({
-            message: error
+            message: error.message
         });
     }
 }
