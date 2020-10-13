@@ -3,21 +3,20 @@ services:
   db:
     build: ./database-service
     environment:
-      POSTGRES_DB: anywebdatabase
+      POSTGRES_DB: projectgoogle
       POSTGRES_PASSWORD: qwerty123
       POSTGRES_USER: user
     volumes:
       - ./database-service/seeder.sql:/docker-entrypoint-initdb.d/dump.sql
   app:
-    ##on fails (ver dependencia de db)
     build: ./
-    restart: always
+    restart: on-failure
     environment:
-        POSTGRES_DB: anywebdatabase
+        POSTGRES_DB: projectgoogle
         POSTGRES_PASSWORD: qwerty123
         POSTGRES_USER: user
     ports:
-      - "8080:8080"
+      - "9090:9090"
     depends_on:
         - db
     links:

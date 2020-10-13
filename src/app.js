@@ -1,9 +1,12 @@
 'use strict';
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+
+require('dotenv').config();
+
 const httpCodes = require('./api/constants/http_codes');
-require('dotenv').config()
 const routes = require("./api/routes/router");
 
 app.use((req, res, next) => {
@@ -25,7 +28,7 @@ app.use((req, res, next) => {
     next(error);
 });
 
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
     res.status(error.status || httpCodes.INTERNAL_SERVER_ERROR);
     res.json({
         error: {

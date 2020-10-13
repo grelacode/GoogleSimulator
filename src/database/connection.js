@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(
-    process.env.POSTGRES_DB || 'anywebdatabase',
-    process.env.POSTGRES_USER || 'user',
-    process.env.POSTGRES_PASSWORD || 'qwerty123',
+    process.env.POSTGRES_DB,
+    process.env.POSTGRES_USER,
+    process.env.POSTGRES_PASSWORD,
     {
-        host: process.env.DATABASE_HOST || 'localhost',
-        port: process.env.DB_PORT || 5432,
+        host: process.env.DATABASE_HOST,
+        port: process.env.DB_PORT,
         dialect: 'postgres',
         dialectOptions: {
             ssl: process.env.DB_SSL == "true"
@@ -17,4 +17,3 @@ module.exports = {
 }
 
 
-//agregar parametros produccion//test
